@@ -1,0 +1,16 @@
+.buscador {
+    display: block;
+}
+
+.input {
+    border-radius: 12px 0 0 12px;
+    padding: 8px;
+    border: none;
+}
+
+.boton {
+    border-radius: 0 12px 12px 0;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+}
