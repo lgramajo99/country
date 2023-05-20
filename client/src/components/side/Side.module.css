@@ -1,0 +1,11 @@
+.listado {
+    background-color: #bba6a6;
+    list-style: none;
+    text-align: start;
+    padding: .5rem;
+}
+
+.listado li {
+    margin: 0;
+    padding: 0;
+}

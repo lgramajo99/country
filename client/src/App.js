@@ -1,16 +1,14 @@
 import './App.css';
-import Cardlist from './components/cardlist/Cardlist';
-import Footer from './components/footer/Footer';
-import Nav from './components/nav/Nav';
+import Footer from './components/footer/Footer.jsx';
+import Inicio from './components/inicio/Inicio.jsx';
+import Nav from './components/nav/Nav.jsx';
 
 
 function App() {
   return (
     <div className="App">
       <Nav />
-      <h1>Henry Countries</h1>
-
-      <Cardlist />
+      <Inicio />
       <Footer />
     </div>
   );
