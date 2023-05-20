@@ -1,14 +1,14 @@
 import style from './Card.module.css';
 
-function Card() {
+function Card({ nombre, continente, imagen }) {
     return (
-        <secction className={style.card}>
+        <section className={style.card}>
             <header className={style.header}>
-                <img className={style.bandera} src="https://flagcdn.com/bi.svg" alt="Republic of Burundi" />
+                <img className={style.bandera} src={imagen} alt={nombre} />
             </header>
-            <p className={style.nombre}>Republic of Burundi</p>
-            <p className={style.continente}>Africa</p>
-        </secction>
+            <p className={style.nombre}>{nombre}</p>
+            <p className={style.continente}>{continente}</p>
+        </section>
     )
 }
 
