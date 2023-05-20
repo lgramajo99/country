@@ -1,5 +1,5 @@
 import './App.css';
-import Card from './components/card/Card';
+import Cardlist from './components/cardlist/Cardlist';
 import Footer from './components/footer/Footer';
 import Nav from './components/nav/Nav';
 
@@ -9,11 +9,8 @@ function App() {
     <div className="App">
       <Nav />
       <h1>Henry Countries</h1>
-      
-      <Card />
-      <Card />
-      <Card />
 
+      <Cardlist />
       <Footer />
     </div>
   );
