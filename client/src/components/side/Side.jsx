@@ -1,19 +1,32 @@
-import style from './Side.module.css';
+import React from 'react';
+import SideLogic from './Side.js';
+import style from './Side.module.css'
+import Loading from '../loading/Loading.jsx';
 
 function Side() {
-    return (<ul className={style.listado}>
-        <h3>Listado de paises mas populares</h3>
-        <li>Item numero 01</li>
-        <li>Item numero 02</li>
-        <li>Item numero 03</li>
-        <li>Item numero 04</li>
-        <li>Item numero 05</li>
-        <li>Item numero 06</li>
-        <li>Item numero 07</li>
-        <li>Item numero 08</li>
-        <li>Item numero 09</li>
-        <li>Item numero 00</li>
-    </ul>)
+    const { countries, mes } = SideLogic();
+
+    if (!countries) {
+        return (
+            <div>
+                <ul className={style.listado}>
+                    <h3>Top 30 países más visitados en {mes}</h3>
+                    <Loading />
+                </ul>
+            </div>
+        );
+    }
+
+    return (
+        <div>
+            <ul className={style.listado}>
+                <h3>Top 30 países más visitados en Mayo</h3>
+                {countries.slice(20, 50).map(({ id, nombre }) => (
+                    <li key={id}>{nombre}</li>
+                ))}
+            </ul>
+        </div>
+    );
 }
 
-export default Side
+export default Side;
