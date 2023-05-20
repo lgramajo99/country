@@ -3,6 +3,7 @@ import Card from '../card/Card.jsx';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountries } from '../../redux/actions/getCountry.action';
+import Loading from '../loading/Loading';
 
 function Cardlist() {
     const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function Cardlist() {
     }, [dispatch]);
 
     if (!countries) {
-        return null; // O puedes mostrar un mensaje de carga mientras los datos se están obteniendo
+        return <Loading />; // O puedes mostrar un mensaje de carga mientras los datos se están obteniendo
     }
 
     return (
