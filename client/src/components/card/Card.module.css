@@ -1,0 +1,33 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border-radius: .8rem;
+    background: #e76a6a;
+}
+
+.header {
+    overflow: hidden;
+    margin: 0;
+}
+
+.bandera {
+    position: relative;
+    width: 100%;
+    height: auto;
+    transition: transform 0.9s ease;
+}
+
+.bandera:hover {
+    transform: scale(1.1);
+}
+
+.nombre {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.continente {
+    text-transform: uppercase;
+
+}
