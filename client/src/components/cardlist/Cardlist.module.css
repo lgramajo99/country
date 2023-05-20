@@ -1,6 +1,11 @@
 .cardlist {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     padding: 1rem;
+    justify-content: center;
+}
+
+.cardlist> :last-child {
+    grid-column: 1 / -1;
 }

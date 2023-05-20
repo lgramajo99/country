@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountries } from '../../redux/actions/getCountry.action';
 import Loading from '../loading/Loading';
+import Paginado from '../utils/paginado/Paginado';
 
 function Cardlist() {
     const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function Cardlist() {
             {countries.slice(0, 15).map(({ id, nombre, imagenBandera, continente }) => (
                 <Card key={id} nombre={nombre} imagen={imagenBandera} continente={continente} />
             ))}
+            <Paginado />
         </article>
     );
 }
