@@ -28,6 +28,10 @@ function Landing() {
                         <form className={style.formulario}>
                             <input className={style.input} type="text" placeholder='Usuario' />
                             <input className={style.input} type='password' placeholder='Contraseña' />
+                            <label className={style.label}>
+                                <input type="checkbox" name="Recordarme" />
+                                Recordarme
+                            </label>
                             <button className={style.boton}> Entrar </button>
                         </form>
                         <button className={style.boton} onClick={handleSwitchLogin}>Volver atras</button>
