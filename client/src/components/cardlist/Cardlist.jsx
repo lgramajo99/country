@@ -15,14 +15,14 @@ function Cardlist() {
     }, [dispatch]);
 
     if (!countries) {
-        return <Loading />; // O puedes mostrar un mensaje de carga mientras los datos se están obteniendo
+        return <Loading />; 
     }
+
 
     return (
 
-
         <article className={style.cardlist}>
-            {countries.slice(0, 15).map(({ id, nombre, imagenBandera, continente }) => (
+            {countries.map(({ id, nombre, imagenBandera, continente }) => (
                 <Card key={id} nombre={nombre} imagen={imagenBandera} continente={continente} />
             ))}
             <Paginado />
