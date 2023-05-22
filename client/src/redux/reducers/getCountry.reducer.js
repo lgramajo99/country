@@ -1,4 +1,4 @@
-import { FETCH_COUNTRY_FAILURE, FETCH_COUNTRY_SUCCESS, FETCH_COUNTRY_REQUEST, CURRENT_PAGE } from "../action-types";
+import { FETCH_COUNTRY_FAILURE, FETCH_COUNTRY_SUCCESS, FETCH_COUNTRY_REQUEST, CURRENT_PAGE, TOTAL_PAGES } from "../action-types";
 
 const initialState = {
     loading: false,
@@ -30,7 +30,12 @@ function getCountryReducer(state = initialState, action) {
             return {
                 ...state,
                 currentPage: action.payload,
-            }
+            };
+        case TOTAL_PAGES:
+            return {
+                ...state,
+                totalPages: action.payload,
+            };
         default:
             return state;
     }

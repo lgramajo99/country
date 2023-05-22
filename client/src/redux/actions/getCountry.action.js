@@ -3,6 +3,7 @@ import {
     FETCH_COUNTRY_SUCCESS,
     FETCH_COUNTRY_FAILURE,
     CURRENT_PAGE,
+    TOTAL_PAGES,
 } from '../action-types.js';
 import axios from 'axios';
 
@@ -38,6 +39,11 @@ export function fetchCountries() {
             const countriesPerPage = countries.slice(start, end);
 
             dispatch(fetchDataCountrySuccess(countriesPerPage));
+            
+            dispatch({
+                type: TOTAL_PAGES,
+                payload: Math.ceil(countries.length / itemsPerPage),
+            });
         } catch (error) {
             dispatch(fetchDataCountryFailure(error));
         }

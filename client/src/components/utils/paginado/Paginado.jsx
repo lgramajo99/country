@@ -5,7 +5,7 @@ import { turnPage, fetchCountries } from '../../../redux/actions/getCountry.acti
 function Paginado() {
     const dispatch = useDispatch();
     const current = useSelector(state => state.getCountry.currentPage);
-
+    const totalPages = useSelector(state => state.getCountry.totalPages);
 
     const handlePrevPage = () => {
         if (current > 1) {
@@ -14,16 +14,29 @@ function Paginado() {
         }
     }
     const handleNextPage = () => {
-        dispatch(turnPage(current + 1))
+        if (current < totalPages) {
+            dispatch(turnPage(current + 1));
+            dispatch(fetchCountries());
+        }
+    }
+    const handleLastPage = () => {
+        dispatch(turnPage(totalPages));
         dispatch(fetchCountries());
     }
 
+    const handleFirstPage = () => {
+        dispatch(turnPage(1));
+        dispatch(fetchCountries());
+    }
 
     return (
         <ul className={style.paginado}>
-            <li><button onClick={handlePrevPage}>{"<"}</button></li>
+            <li><button onClick={handleFirstPage}>&laquo;</button></li>
+            <li><button onClick={handlePrevPage}>&lt;</button></li>
             <h1>{current}</h1>
-            <li><button onClick={handleNextPage}>{">"}</button></li>
+            <li><button onClick={handleNextPage}>&gt;</button></li>
+            <li><button onClick={handleLastPage}>&raquo;</button></li>
+
         </ul>
     )
 }
