@@ -1,4 +1,5 @@
 import './App.css';
+import Countrydetail from './components/countrydetail/Countrydetail';
 import Errorpage from './components/errorpage/Errorpage';
 import Footer from './components/footer/Footer.jsx';
 import Inicio from './components/inicio/Inicio.jsx';
@@ -11,11 +12,12 @@ function App() {
 
   return (
     <div className="App">
-      
+
       {(location.pathname === '/') ? null : <Nav />}
       <Routes >
         <Route path='/' element={<Landing />} />
         <Route path={'/inicio'} element={<Inicio />} />
+        <Route path={'/detail'} element={<Countrydetail />} />
         <Route path={'*'} element={<Errorpage />} />
       </Routes>
       {(location.pathname === '/') ? null : <Footer />}
