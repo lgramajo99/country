@@ -17,7 +17,7 @@ function App() {
       <Routes >
         <Route path='/' element={<Landing />} />
         <Route path={'/inicio'} element={<Inicio />} />
-        <Route path={'/detail'} element={<Countrydetail />} />
+        <Route path={'/detail/:idPais'} element={<Countrydetail />} />
         <Route path={'*'} element={<Errorpage />} />
       </Routes>
       {(location.pathname === '/') ? null : <Footer />}

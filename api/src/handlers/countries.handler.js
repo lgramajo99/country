@@ -1,5 +1,7 @@
 const countriesId = require('../controllers/countriesId.controller.js');
 // const countriesName = require('../controllers/countriesName.controller.js');
+const countries = require('../controllers/countries.controller.js')
+
 
 const getCountriesId = async (req, res) => {
     const id = req.params.idPais;
@@ -10,6 +12,17 @@ const getCountriesId = async (req, res) => {
 
     } catch (error) {
         res.status(500).json({ message: `No se pudo obtener el país solicitado con el id: ${id}, error: ${error}` });
+    }
+}
+
+
+const getCountries = async (req, res) => {
+    try {
+        const country = await countries()
+        res.status(200).json(country);
+
+    } catch (error) {
+        res.status(200).json({ message: `No se pudo obtener los paises solicitados, error: ${error}` })
     }
 }
 
@@ -25,4 +38,4 @@ const getCountriesId = async (req, res) => {
 //     }
 // }
 
-module.exports = { getCountriesId };
+module.exports = { getCountriesId, getCountries };

@@ -29,7 +29,7 @@ function Cardlist() {
     return (
         <article className={style.cardlist}>
             {countries.map(({ id, nombre, imagenBandera, continente }) => (
-                <Card key={id} nombre={nombre} imagen={imagenBandera} continente={continente} />
+                <Card key={id} id={id} nombre={nombre} imagen={imagenBandera} continente={continente} />
             ))}
             <Paginado />
         </article>
