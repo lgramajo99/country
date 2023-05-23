@@ -16,11 +16,14 @@ const countries = async () => {
             poblacion: e.population,
         }
     })
+    // Verificar si los países ya existen en la db
     const existingCountries = await Country.findAll({ attributes: ['id'] });
     const existingCountryIds = existingCountries.map((country) => country.id);
 
+    // Filtro los paises que no estan en la db
     const newCountries = country.filter((country) => !existingCountryIds.includes(country.id));
 
+    // Agregar los nuevos paises a la db
     if (newCountries.length > 0) {
         await Country.bulkCreate(newCountries);
     }
