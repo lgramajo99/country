@@ -1,7 +1,7 @@
 const axios = require('axios');
+const { Country } = require('../db.js')
 
 const countries = async () => {
-    // try {
 
     const response = await axios.get('https://rest-countries.up.railway.app/v2/all');
     const country = response.data.map((e) => {
@@ -10,24 +10,25 @@ const countries = async () => {
             nombre: e.name,
             imagenBandera: e.flags?.["svg"],
             continente: e.region,
-            capital: e.capital,
+            capital: e.capital || '',
             subregion: e.subregion,
             area: e.area,
-            pablacion: e.population,
+            poblacion: e.population,
         }
     })
+    const existingCountries = await Country.findAll({ attributes: ['id'] });
+    const existingCountryIds = existingCountries.map((country) => country.id);
+
+    const newCountries = country.filter((country) => !existingCountryIds.includes(country.id));
+
+    if (newCountries.length > 0) {
+        await Country.bulkCreate(newCountries);
+    }
 
     return country;
-    // res.status(200).json(country);
-
-    // } catch (error) {
-    // res.status(500).json({ message: `No se pudo obtener los paises solicitados, error: ${error}` })
-
-    // }
 }
 
 module.exports = countries;
-
 
 
         // const response = await axios.get('https://restcountries.com/v3/all')
