@@ -7,6 +7,7 @@ import {
     FETCH_TOP_COUNTRIES_FAILURE,
     FETCH_TOP_COUNTRIES_SUCCESS,
     FETCH_TOP_COUNTRIES_REQUEST,
+    ORDER
 } from '../action-types.js';
 
 
@@ -26,6 +27,10 @@ export function fetchDataCountryFailure(error) {
 
 export function turnPage(currentPage) {
     return { type: CURRENT_PAGE, payload: currentPage }
+}
+
+export function orderCard(orderBy) {
+    return { type: ORDER, payload: orderBy };
 }
 
 export function fetchCountries() {

@@ -6,6 +6,9 @@ import { fetchCountries } from '../../redux/actions/getCountry.action';
 import Loading from '../loading/Loading';
 import Paginado from '../utils/paginado/Paginado';
 import Errorcardlist from '../utils/error/Errorcardlist';
+import Order from '../utils/order/Order';
+import Filter from '../utils/filter/Filter';
+
 
 function Cardlist() {
     const dispatch = useDispatch();
@@ -28,6 +31,10 @@ function Cardlist() {
     // si todo sale ok apareceran las cards
     return (
         <article className={style.cardlist}>
+            <div className={style.selection}>
+                <Order />
+                <Filter />
+            </div>
             {countries.map(({ id, nombre, imagenBandera, continente }) => (
                 <Card key={id} id={id} nombre={nombre} imagen={imagenBandera} continente={continente} />
             ))}

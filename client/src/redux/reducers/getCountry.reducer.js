@@ -7,6 +7,7 @@ import {
     FETCH_TOP_COUNTRIES_FAILURE,
     FETCH_TOP_COUNTRIES_SUCCESS,
     FETCH_TOP_COUNTRIES_REQUEST,
+    ORDER
 } from "../action-types";
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     topLoading: false,
     topError: null,
     topCountries: [],
+    orderBy: 'default',
 };
 
 function getCountryReducer(state = initialState, action) {
@@ -65,6 +67,21 @@ function getCountryReducer(state = initialState, action) {
                 topLoading: false,
                 topError: action.payload,
             }
+        case ORDER:
+            let sortedData;
+            if (action.payload === 'ascendente') {
+                sortedData = [...state.data].sort((a, b) => (a.id > b.id ? 1 : -1));
+            } else if (action.payload === 'descendente') {
+                sortedData = [...state.data].sort((a, b) => (a.id < b.id ? 1 : -1));
+            } else {
+                sortedData = [...state.data];
+            }
+
+            return {
+                ...state,
+                data: sortedData,
+                orderBy: action.payload,
+            };
         default:
             return state;
     }

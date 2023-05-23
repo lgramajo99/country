@@ -5,6 +5,7 @@
     border-radius: .8rem;
     background: #e76a6a;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .header {
