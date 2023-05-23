@@ -18,11 +18,11 @@ export function fetchCountryIdSuccess(data) {
     return { type: FETCH_COUNTRY_SUCCESS_ID, payload: data }
 }
 
-export function fetchCountryId() {
+export function fetchCountryId(idPais) {
     return async (dispatch) => {
         dispatch(fetchCountryIdRequest())
         try {
-            const response = await axios.get('http://localhost:3001/countries:idPais')
+            const response = await axios.get(`http://localhost:3001/countries/${idPais}`)
             const country = response.data;
 
             dispatch(fetchCountryIdSuccess(country))
