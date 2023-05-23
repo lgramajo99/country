@@ -4,7 +4,12 @@ import {
     FETCH_COUNTRY_FAILURE,
     CURRENT_PAGE,
     TOTAL_PAGES,
+    FETCH_TOP_COUNTRIES_FAILURE,
+    FETCH_TOP_COUNTRIES_SUCCESS,
+    FETCH_TOP_COUNTRIES_REQUEST,
 } from '../action-types.js';
+
+
 import axios from 'axios';
 
 export function fetchDataCountryRequest() {
@@ -39,13 +44,39 @@ export function fetchCountries() {
             const countriesPerPage = countries.slice(start, end);
 
             dispatch(fetchDataCountrySuccess(countriesPerPage));
-            
             dispatch({
                 type: TOTAL_PAGES,
                 payload: Math.ceil(countries.length / itemsPerPage),
             });
         } catch (error) {
             dispatch(fetchDataCountryFailure(error));
+        }
+    };
+}
+
+// ################################################################
+export function fetchTopCountrySuccess(topCountries) {
+    return { type: FETCH_TOP_COUNTRIES_SUCCESS, payload: topCountries }
+}
+export function fetchTopCountryRequest() {
+    return { type: FETCH_TOP_COUNTRIES_REQUEST }
+}
+
+export function fetchTopCountryFailure(topError) {
+    return { type: FETCH_TOP_COUNTRIES_FAILURE, payload: topError }
+}
+
+export function fetchTopCountriesName() {
+    return async (dispatch) => {
+        dispatch(fetchDataCountryRequest())
+        try {
+            const response = await axios.get('http://localhost:3001/countries');
+            const countries = response.data.slice(25, 65);
+
+            dispatch(fetchTopCountrySuccess(countries));
+
+        } catch (topError) {
+            dispatch(fetchDataCountryFailure(topError));
         }
     };
 }

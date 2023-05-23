@@ -9,3 +9,10 @@
     margin: 0;
     padding: 0;
 }
+
+.listado li a,
+.listado li span {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
