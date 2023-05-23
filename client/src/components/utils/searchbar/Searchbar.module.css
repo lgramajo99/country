@@ -1,5 +1,11 @@
+.contenedor {
+    position: relative;
+}
+
 .buscador {
     display: block;
+    /* position: relative; */
+    /* z-index: 1; */
 }
 
 .input {
@@ -13,4 +19,26 @@
     padding: 8px 15px;
     border: none;
     cursor: pointer;
+}
+
+.lista {
+    background-color: azure;
+    list-style: none;
+    border-radius: 0 0 12px 12px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: start;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+}
+
+.lista li:nth-child(odd) {
+    background-color: rgb(247, 247, 247);
+}
+
+.lista li:nth-child(even) {
+    background-color: rgb(255, 255, 255);
 }
