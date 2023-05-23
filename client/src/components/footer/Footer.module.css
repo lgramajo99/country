@@ -28,4 +28,11 @@
     text-decoration: none;
     color: black;
     margin: 0 5px;
-}   
+}
+
+@media(max-width: 767.98px) {
+    .containerUp {
+        flex-direction: column;
+        text-align: center;
+    }
+}

@@ -14,7 +14,7 @@
 
 .boton {
     border-radius: 0 12px 12px 0;
-    padding: 8px 15px;
+    padding: 6px 15px;
     border: none;
     cursor: pointer;
 }
@@ -39,4 +39,14 @@
 
 .lista li:nth-child(even) {
     background-color: rgb(255, 255, 255);
+}
+
+@media(max-width: 767.98px) {
+    .input {
+        padding: 4px;
+    }
+
+    .boton {
+        padding: 4px 10px;
+    }
 }
