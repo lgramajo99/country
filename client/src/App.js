@@ -1,5 +1,6 @@
 import './App.css';
 import Countrydetail from './components/countrydetail/Countrydetail';
+import Createactivity from './components/createactivity/Createactivity';
 import Errorpage from './components/errorpage/Errorpage';
 import Footer from './components/footer/Footer.jsx';
 import Inicio from './components/inicio/Inicio.jsx';
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route path={'/inicio'} element={<Inicio />} />
         <Route path={'/detail/:idPais'} element={<Countrydetail />} />
+        <Route path={'/administracion'} element={<Createactivity />} />
         <Route path={'*'} element={<Errorpage />} />
       </Routes>
       {(location.pathname === '/') ? null : <Footer />}

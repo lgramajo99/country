@@ -1,0 +1,39 @@
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 25px auto;
+    padding: 30px;
+    row-gap: 10px;
+    background-color: #e76a6a;
+    border-radius: 12px;
+}
+
+.formulario input,
+.formulario button {
+    padding: 12px;
+    margin: 5px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+}
+
+.formulario button {
+    margin: auto;
+    background-color: #4ec7f0;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.formulario label input {
+    transform: scale(1.5);
+
+}
+
+.formulario .temporada {
+    display: flex;
+    margin: 15px;
+    gap: 15px;
+    justify-content: center;
+
+}

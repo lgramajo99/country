@@ -22,6 +22,7 @@
     - Side.jsx
 3. Indian Red: #e76a6a
     - Card.jsx
+    - Createactivity.jsx
 4. Light Rose: #e4cccc
     - Cardlist.jsx
 5. Slate Gray: #706E6E
