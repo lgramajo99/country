@@ -1,23 +1,11 @@
 import style from './Countrydetail.module.css';
 import Loading from '../loading/Loading';
 import Errorcardlist from '../utils/error/Errorcardlist';
-
-import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCountryId } from '../../redux/actions/getCountryId.action';
+import CountrydetailLogic from './CountridetailLogic';
 
 function Countrydetail() {
-    const { idPais } = useParams();
-    const dispatch = useDispatch();
-    const country = useSelector(state => state.getCountryId.data);
-    const error = useSelector(state => state.getCountryId.error);
-    const loading = useSelector(state => state.getCountryId.loading);
 
-    useEffect(() => {
-        dispatch(fetchCountryId(idPais));
-    }, [dispatch, idPais]);
-
+    const { country, error, loading } = CountrydetailLogic();
     const { id, nombre, imagenBandera, capital, continente, subregion, area, poblacion } = country;
 
     if (loading) { return <Loading /> }
@@ -26,7 +14,7 @@ function Countrydetail() {
     return (
         <article className={style.detailpage}>
             <header className={style.cabecera}>
-                <h1 className={style.nombre}>{nombre ? `${nombre} - ID: [${id}]` : 'Nombre del País'}</h1>
+                <h1 className={style.nombre}>{`${nombre} - ID: [${id}]`}</h1>
                 <img className={style.bandera} src={`${imagenBandera}`} alt={nombre} />
                 <h3>Capital: {capital}</h3>
             </header>

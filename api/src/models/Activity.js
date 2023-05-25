@@ -13,6 +13,9 @@ module.exports = (sequelize) => {
         nombre: {
             type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                notEmpty: true, 
+            },
         },
         dificultad: {
             type: DataTypes.INTEGER,
@@ -23,12 +26,16 @@ module.exports = (sequelize) => {
             },
         },
         duracion: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: true,
+            validate: {
+                notEmpty: true,
+            },
         },
         temporada: {
             type: DataTypes.ENUM('verano', 'otoño', 'invierno', 'primavera'),
             allowNull: false,
+            defaultValue: 'verano',
         },
     }, { timestamps: false });
 };
