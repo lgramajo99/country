@@ -1,5 +1,5 @@
 import style from './Cardlist.module.css';
-import Card from '../card/Card.jsx';
+import Card from '../card/Card';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountries } from '../../redux/actions/getCountry.action';
@@ -12,7 +12,7 @@ import Filter from '../utils/filter/Filter';
 
 function Cardlist() {
     const dispatch = useDispatch();
-    const { countries, loading, error } = useSelector(state => state.getCountry);
+    const { data, loading, error } = useSelector(state => state.getCountry);
 
     useEffect(() => {
         dispatch(fetchCountries());
@@ -33,7 +33,7 @@ function Cardlist() {
                 <Order />
                 <Filter />
             </div>
-            {countries.map(({ id, nombre, imagenBandera, continente }) => (
+            {data.map(({ id, nombre, imagenBandera, continente }) => (
                 <Card key={id} id={id} nombre={nombre} imagen={imagenBandera} continente={continente} />
             ))}
             <Paginado />
