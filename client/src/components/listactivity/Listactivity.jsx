@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchActivity } from '../../redux/actions/getActivity.action';
 import Loading from '../loading/Loading';
 import Errorcardlist from '../utils/error/Errorcardlist';
+import Sortbutton from '../utils/botones/Sortbutton';
 
 function Listactivity() {
     const dispatch = useDispatch();
@@ -21,11 +22,11 @@ function Listactivity() {
         <table className={style.lista}>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Duración</th>
-                    <th>Dificultad</th>
-                    <th>Temporada</th>
+                    <th>ID <Sortbutton /></th>
+                    <th>Nombre <Sortbutton /></th>
+                    <th>Duración <Sortbutton /></th>
+                    <th>Dificultad <Sortbutton /></th>
+                    <th>Temporada <Sortbutton /></th>
                 </tr>
             </thead>
             <tbody>
