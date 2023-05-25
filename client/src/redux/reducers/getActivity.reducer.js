@@ -1,13 +1,15 @@
 import {
     FETCH_ACTIVITY_FAILURE,
     FETCH_ACTIVITY_REQUEST,
-    FETCH_ACTIVITY_SUCCESS
+    FETCH_ACTIVITY_SUCCESS,
+    ARRORW_SORT_ID
 } from '../action-types.js'
 
 const initialState = {
     data: [],
     loading: false,
     error: null,
+    arrowId: false,
 }
 
 function getActivityReducer(state = initialState, action) {
@@ -29,6 +31,19 @@ function getActivityReducer(state = initialState, action) {
                 loading: false,
                 data: action.payload,
             }
+        case ARRORW_SORT_ID:
+            const sortedData = state.data.slice().sort((a, b) => {
+                if (state.arrowId) {
+                    return a.id - b.id;
+                } else {
+                    return b.id - a.id;
+                }
+            });
+            return {
+                ...state,
+                data: sortedData,
+                arrowId: !state.arrowId,
+            };
 
         default:
             return state;

@@ -1,15 +1,18 @@
 import style from './Sortbutton.module.css';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { arrowId } from '../../../redux/actions/getActivity.action';
 
 function Sortbutton() {
-    const [arrow, setArrow] = useState(true);
-    const switchArrow = () => { setArrow(!arrow) }
+    const dispatch = useDispatch();
+    const arrowIdState = useSelector(state => state.getActivity.arrowId)
+
+    const switchArrow = () => { dispatch(arrowId(!arrowIdState)); }
 
     return (
         <button onClick={switchArrow} className={style.sortButton}>
-            {arrow
-                ? <span className={style.arrowUp}></span>
-                : <span className={style.arrowDown}></span>
+            {arrowIdState
+                ? (<span className={style.arrowDown}></span>)
+                : (<span className={style.arrowUp}></span>)
             }
         </button >
     )

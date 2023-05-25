@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
     FETCH_ACTIVITY_FAILURE,
     FETCH_ACTIVITY_REQUEST,
-    FETCH_ACTIVITY_SUCCESS
+    FETCH_ACTIVITY_SUCCESS,
+    ARRORW_SORT_ID,
 } from '../action-types.js';
 
 export function fetchDataActivityFailure(error) {
@@ -15,6 +16,10 @@ export function fetchDataActivityRequest() {
 
 export function fetchDataActivitySuccess(data) {
     return { type: FETCH_ACTIVITY_SUCCESS, payload: data };
+}
+
+export function arrowId(arrowId) {
+    return { type: ARRORW_SORT_ID, payload: arrowId }
 }
 
 export function fetchActivity() {

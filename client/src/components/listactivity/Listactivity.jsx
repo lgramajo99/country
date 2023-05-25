@@ -22,11 +22,11 @@ function Listactivity() {
         <table className={style.lista}>
             <thead>
                 <tr>
-                    <th>ID <Sortbutton /></th>
-                    <th>Nombre <Sortbutton /></th>
-                    <th>Duración <Sortbutton /></th>
-                    <th>Dificultad <Sortbutton /></th>
-                    <th>Temporada <Sortbutton /></th>
+                    <th>ID<Sortbutton /></th>
+                    <th>Nombre</th>
+                    <th>Duración</th>
+                    <th>Dificultad</th>
+                    <th>Temporada</th>
                 </tr>
             </thead>
             <tbody>
