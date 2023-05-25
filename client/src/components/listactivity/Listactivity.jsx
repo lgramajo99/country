@@ -8,9 +8,7 @@ import Sortbutton from '../utils/botones/Sortbutton';
 
 function Listactivity() {
     const dispatch = useDispatch();
-    const activities = useSelector(state => state.getActivity.data);
-    const loading = useSelector(state => state.getActivity.loading);
-    const error = useSelector(state => state.getActivity.error);
+    const { activities, error, loading } = useSelector(state => state.getActivity);
 
     useEffect(() => {
         dispatch(fetchActivity())
@@ -40,7 +38,7 @@ function Listactivity() {
                     </tr>
                 ))}
             </tbody>
-        </table >
+        </table>
     )
 }
 

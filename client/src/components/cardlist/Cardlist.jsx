@@ -12,9 +12,7 @@ import Filter from '../utils/filter/Filter';
 
 function Cardlist() {
     const dispatch = useDispatch();
-    const countries = useSelector(state => state.getCountry.data);
-    const loading = useSelector(state => state.getCountry.loading);
-    const error = useSelector(state => state.getCountry.error)
+    const { countries, loading, error } = useSelector(state => state.getCountry);
 
     useEffect(() => {
         dispatch(fetchCountries());

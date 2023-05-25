@@ -23,7 +23,7 @@ function Landing() {
                         <button className={style.boton} onClick={handlerInvitado}>Entrar como invitado</button>
                         <button className={style.boton} onClick={handleSwitchLogin}>Entrar como administrador</button>
                     </article>
-                    : //  ######################################################## 
+                    : 
                     <article>
                         <form className={style.formulario}>
                             <input className={style.input} type="text" placeholder='Usuario' />

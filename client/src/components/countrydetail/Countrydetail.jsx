@@ -1,7 +1,7 @@
 import style from './Countrydetail.module.css';
 import Loading from '../loading/Loading';
 import Errorcardlist from '../utils/error/Errorcardlist';
-import CountrydetailLogic from './CountridetailLogic';
+import CountrydetailLogic from './CountrydetailLogic';
 
 function Countrydetail() {
 

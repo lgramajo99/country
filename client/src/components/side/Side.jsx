@@ -8,12 +8,10 @@ import { Link } from 'react-router-dom';
 
 function Side() {
     const dispatch = useDispatch();
-    const topCountries = useSelector((state) => state.getCountry.topCountries);
-    const topLoading = useSelector((state) => state.getCountry.topLoading);
-    const topError = useSelector((state) => state.getCountry.topError);
+    const { topCountries, topLoading, topError } = useSelector((state) => state.getCountry);
 
     const date = new Date();
-    const mesIndex = date.getMonth();
+    const mesId = date.getMonth();
     const meses = [
         'Enero',
         'Febrero',
@@ -29,7 +27,7 @@ function Side() {
         'Diciembre',
     ];
 
-    const mes = meses[mesIndex];
+    const mes = meses[mesId];
 
     useEffect(() => {
         dispatch(fetchTopCountriesName());
