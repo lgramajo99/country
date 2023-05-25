@@ -12,10 +12,11 @@
 .formulario input,
 .formulario button {
     padding: 12px;
-    margin: 5px;
+    margin: 5px auto;
     font-size: 14px;
     border-radius: 8px;
     border: none;
+    width: 90%;
 }
 
 .formulario button {
@@ -23,6 +24,7 @@
     background-color: #4ec7f0;
     font-weight: bolder;
     cursor: pointer;
+    width: 30% !important;
 }
 
 .formulario label input {
@@ -36,4 +38,25 @@
     gap: 15px;
     justify-content: center;
 
+}
+
+.paises {
+    display: flex;
+    flex-direction: column;
+}
+
+.paises input {
+    width: 80%;
+}
+
+.addPaises {
+    display: flex;
+}
+
+.addPaises :first-child {
+    background-color: rgb(241, 33, 33);
+}
+
+.addPaises :last-child {
+    background-color: rgb(111, 184, 111);
 }

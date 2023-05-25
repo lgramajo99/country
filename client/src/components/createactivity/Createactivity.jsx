@@ -10,7 +10,8 @@ function Createactivity() {
     const [dificultad, setDificultad] = useState('');
     const [duracion, setDuracion] = useState('');
     const [temporada, setTemporada] = useState('verano');
-
+    const [countCountry, setCountCountry] = useState(1);
+    const [countries, setCountries] = useState([]);
 
 
     const handleSubmit = (e) => {
@@ -21,7 +22,10 @@ function Createactivity() {
             dificultad,
             duracion,
             temporada,
+            countries: [...countries]
         };
+        
+        console.log('Datos de actividad:', activityData);
 
         dispatch(postActivity(activityData));
 
@@ -29,8 +33,39 @@ function Createactivity() {
         setDificultad('');
         setDuracion('');
         setTemporada('verano');
+        setCountCountry(1)
+        setCountries([])
     }
 
+    const handleAddPais = () => {
+        setCountCountry(countCountry + 1)
+    };
+
+    const handleRemovePais = () => {
+        setCountCountry(countCountry - 1)
+    };
+
+    const handleChangeCountry = (e, index) => {
+        const newCountries = [...countries];
+        newCountries[index] = e.target.value;
+        setCountries(newCountries);
+    };
+
+    const renderInputs = () => {
+        const inputs = [];
+        for (let i = 0; i < countCountry; i++) {
+            inputs.push(
+                <input
+                    key={i}
+                    type="text"
+                    value={countries[i] || ''}
+                    placeholder="Agregar país"
+                    onChange={(e) => handleChangeCountry(e, i)}
+                />
+            );
+        }
+        return inputs;
+    };
 
     return (
         <form className={style.formulario} onSubmit={handleSubmit}>
@@ -101,8 +136,18 @@ function Createactivity() {
                 </label>
             </div>
 
+            {renderInputs()}
+
+            <div className={style.addPaises}>
+                {
+                    countCountry > 1
+                    && <button type='button' onClick={handleRemovePais}>-</button>
+                }
+                <button type='button' onClick={handleAddPais}>+</button>
+            </div>
+
             <button type="submit">Crear actividad</button>
-        </form>
+        </form >
     )
 }
 

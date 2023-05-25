@@ -1,4 +1,5 @@
 const { Activity, Country } = require('../db.js');
+const { Op } = require('sequelize');
 
 const createActivity = async (req, res) => {
     try {
@@ -14,8 +15,14 @@ const createActivity = async (req, res) => {
 
         // Relacionar la actividad con los países indicados
         if (countries && countries.length > 0) {
-            const countryIds = countries.map(countryId => countryId.toUpperCase());
-            const relatedCountries = await Country.findAll({ where: { id: countryIds } });
+            const countryNames = countries.map(countryName => countryName.toLowerCase());
+            const relatedCountries = await Country.findAll({
+                where: {
+                    nombre: {
+                        [Op.iLike]: { [Op.any]: countryNames }
+                    }
+                }
+            });
             await newActivity.addCountries(relatedCountries);
         }
 
