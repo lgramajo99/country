@@ -27,6 +27,9 @@
     - Cardlist.jsx
 5. Slate Gray: #706E6E
     - Landing.jsx
+    - ListActivity.jsx
+6. Gris medio: #8C8A8A
+    - ListActivity.jsx
 ```
 
 

@@ -1,4 +1,26 @@
-.lista{
+.lista {
+    border-collapse: collapse;
+    width: 90%;
     margin: 20px auto;
-    
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #A9A7A7;
+}
+
+.lista th,
+.lista td {
+    padding: 8px;
+    text-align: left;
+    font-weight: bolder;
+    border: 2px black solid;
+}
+
+.lista th {
+    background-color: #706E6E;
+    color: #ffffff;
+}
+
+.lista tr:hover {
+    background-color: #8C8A8A;
+    color: #ffffff;
 }
