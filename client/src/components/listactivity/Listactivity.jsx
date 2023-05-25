@@ -8,7 +8,7 @@ import Sortbutton from '../utils/botones/Sortbutton';
 
 function Listactivity() {
     const dispatch = useDispatch();
-    const { activities, error, loading } = useSelector(state => state.getActivity);
+    const { data, error, loading } = useSelector(state => state.getActivity);
 
     useEffect(() => {
         dispatch(fetchActivity())
@@ -28,7 +28,7 @@ function Listactivity() {
                 </tr>
             </thead>
             <tbody>
-                {activities.map(({ id, nombre, dificultad, temporada, duracion }) => (
+                {data?.map(({ id, nombre, dificultad, temporada, duracion }) => (
                     <tr key={id}>
                         <td>{id}</td>
                         <td>{nombre}</td>
