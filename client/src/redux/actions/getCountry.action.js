@@ -7,7 +7,8 @@ import {
     FETCH_TOP_COUNTRIES_FAILURE,
     FETCH_TOP_COUNTRIES_SUCCESS,
     FETCH_TOP_COUNTRIES_REQUEST,
-    ORDER
+    ORDER,
+    FILTER_CONTINENT
 } from '../action-types.js';
 
 
@@ -33,6 +34,10 @@ export function orderCard(orderBy) {
     return { type: ORDER, payload: orderBy };
 }
 
+export function filterContinente(contientes) {
+    return { type: FILTER_CONTINENT, payload: contientes }
+}
+    
 export function fetchCountries() {
     return async (dispatch, getState) => {
         const { currentPage } = getState().getCountry; // Obtiene currentPage del estado

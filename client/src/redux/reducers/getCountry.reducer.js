@@ -7,7 +7,8 @@ import {
     FETCH_TOP_COUNTRIES_FAILURE,
     FETCH_TOP_COUNTRIES_SUCCESS,
     FETCH_TOP_COUNTRIES_REQUEST,
-    ORDER
+    ORDER,
+    FILTER_CONTINENT,
 } from "../action-types";
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
     topError: null,
     topCountries: [],
     orderBy: 'default',
+    continentes: []
 };
 
 function getCountryReducer(state = initialState, action) {
@@ -82,6 +84,14 @@ function getCountryReducer(state = initialState, action) {
                 data: sortedData,
                 orderBy: action.payload,
             };
+        case FILTER_CONTINENT:
+            let filterData;
+            filterData = action.payload === 'all' ? state.data.continente : state.data.continente.filter(p => p.continente === action.payload)
+
+            return {
+                ...state,
+                continentes: filterData
+            }
         default:
             return state;
     }
